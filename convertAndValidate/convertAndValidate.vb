@@ -2,7 +2,7 @@
 'RCET 2265
 'Spring 2025
 'ConvertAndValidate
-'
+'https://github.com/rc-earnest/convertAndValidate.git
 Option Compare Text
 Option Explicit On
 Option Strict On
@@ -36,17 +36,19 @@ Module convertAndValidate
     'make this work
 
 
-    Function ConversionValid(ByVal convertThisString As String, ByVal toThisInteger As Integer) As Boolean
+    Function ConversionValid(ByVal convertThisString As String, ByRef toThisInteger As Integer) As Boolean
 
         Dim status As Boolean
 
+
         Try
-
+            toThisInteger = CInt(convertThisString)
+            status = True
         Catch ex As Exception
-
+            status = False
         End Try
-
         Return status
+
 
     End Function
 
